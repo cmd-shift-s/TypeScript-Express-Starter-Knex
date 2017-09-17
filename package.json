@@ -5,11 +5,12 @@
   "main": "src/server.js",
   "scripts": {
     "start": "npm run build && npm run watch",
-    "build": "npm run build-ts",
+    "build": "npm run build-ts && npm run tslint",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve\"",
     "serve": "nodemon dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +34,8 @@
     "@types/node": "^8.0.28",
     "concurrently": "^3.5.0",
     "nodemon": "^1.12.1",
+    "tslint": "^5.7.0",
+    "tslint-config-standard": "^6.0.1",
     "typescript": "^2.5.2"
   }
 }
