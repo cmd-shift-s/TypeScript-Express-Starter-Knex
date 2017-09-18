@@ -9,7 +9,7 @@ export default class Request {
   }
 
   _request(method: string, url: string, status: number = 200) {
-    return request(this._app)[method](`/${url}`).expect(status)
+    return (request(this._app) as any)[method](`/${url}`).expect(status)
   }
 
   get(url: string, status: number = 200) {

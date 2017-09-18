@@ -11,7 +11,7 @@
     "build-ts": "tsc -p src",
     "watch-ts": "tsc -w -p src",
     "tslint": "tslint -c tslint.json -p src/tsconfig.json",
-    "test": "cross-env NODE_ENV=test mocha --reporter spec --require test/unit/tsconfig.ts test/unit/**/*.test.ts",
+    "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test mocha --reporter spec --compilers ts:ts-node/register -r tsconfig-paths/register test/unit/**/*.test.ts",
     "migrate": "knex migrate:latest"
   },
   "repository": {
@@ -58,6 +58,7 @@
     "nodemon": "^1.12.1",
     "supertest": "^3.0.0",
     "ts-node": "^3.3.0",
+    "tsconfig-paths": "^2.3.0",
     "tslint": "^5.7.0",
     "tslint-config-standard": "^6.0.1",
     "typescript": "^2.5.2"

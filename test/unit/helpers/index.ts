@@ -1,8 +1,9 @@
 import Request from './request'
 import * as MockKnex from 'mock-knex'
 import { Application } from 'express'
+import * as App from '@/app'
 
-export const app: Application = require('../../../src/app')
+export const app = App as Application
 
 export const req = new Request(app)
 
