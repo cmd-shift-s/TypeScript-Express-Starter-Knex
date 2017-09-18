@@ -34,7 +34,8 @@
     "express": "^4.15.4",
     "knex": "^0.13.0",
     "morgan": "^1.8.2",
-    "mysql2": "^1.4.2"
+    "mysql2": "^1.4.2",
+    "validatorjs": "^3.13.5"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
@@ -47,6 +48,7 @@
     "@types/morgan": "^1.7.32",
     "@types/node": "^8.0.28",
     "@types/supertest": "^2.0.3",
+    "@types/validatorjs": "^3.7.0",
     "chai": "^4.1.2",
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.5",

@@ -11,4 +11,9 @@ describe('GET /echo', () => {
     const res = await req.get('echo?msg=message')
     expect(res.body.msg).to.equal('message')
   })
+
+  it('should return 400 Bad Request', async () => {
+    const res = await req.get('echo', 400)
+    expect(res.body.message).to.equal('Bad Request')
+  })
 })
