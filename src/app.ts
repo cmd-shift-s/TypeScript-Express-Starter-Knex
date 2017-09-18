@@ -7,6 +7,12 @@ import * as logger from 'morgan'
 
 const debug = require('debug')('ts-express:app')
 
+const { error } = require('dotenv').config()
+if (error) {
+  debug(error)
+  throw error
+}
+
 /**
  * Create Express server.
  */
@@ -16,7 +22,10 @@ const app = express()
  * Express configuration.
  */
 
-app.use(logger('dev'))
+const isTest = process.env.NODE_ENV === 'test'
+app.use(logger(process.env.LOG_LEVEL, {
+  skip: () => isTest
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
