@@ -8,3 +8,10 @@ describe('GET /', () => {
     expect(res.text).equals('Hello World!')
   })
 })
+
+describe('GET /not_found', () => {
+  it('should return 404', async () => {
+    const res = await request(app).get('/not_found').expect(404)
+    expect(res.body.message).equals('Not Found')
+  })
+})

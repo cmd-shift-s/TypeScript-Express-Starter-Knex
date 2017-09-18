@@ -6,6 +6,7 @@
 
 const app = require('../dist/app')
 const http = require('http')
+const debug = require('debug')('ts-express:server')
 
 /**
  * Get port from environment and store in Express.
