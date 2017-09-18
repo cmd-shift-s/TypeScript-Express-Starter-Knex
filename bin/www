@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-const app = require('../dist/app')
+const app = require('../src/app')
 const http = require('http')
 const debug = require('debug')('ts-express:server')
 
@@ -80,5 +80,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port
 
-  // debug('Listening on ' + bind)
+  debug('Listening on ' + bind)
 }

@@ -8,11 +8,11 @@ export default class Request {
     this._app = app
   }
 
-  _request(method, url, status = 200) {
+  _request(method: string, url: string, status: number = 200) {
     return request(this._app)[method](`/${url}`).expect(status)
   }
 
-  get(url, status = 200) {
+  get(url: string, status: number = 200) {
     return this._request('get', url, status)
   }
 }
