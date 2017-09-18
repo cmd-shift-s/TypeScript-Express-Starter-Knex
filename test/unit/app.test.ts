@@ -1,17 +1,16 @@
 import { expect } from 'chai'
-import * as request from 'supertest'
-const app = require('../../src/app')
+import { req } from './helpers'
 
 describe('GET /', () => {
   it('should return "Hello World"', async () => {
-    const res = await request(app).get('/').expect(200)
+    const res = await req.get('')
     expect(res.text).equals('Hello World!')
   })
 })
 
 describe('GET /not_found', () => {
   it('should return 404', async () => {
-    const res = await request(app).get('/not_found').expect(404)
+    const res = await req.get('not_found', 404)
     expect(res.body.message).equals('Not Found')
   })
 })
