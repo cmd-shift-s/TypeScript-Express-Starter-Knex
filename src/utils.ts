@@ -15,26 +15,24 @@ export function error(status: number, message: string, data?: any): Error {
   return err
 }
 
+export function validate(data: any, rules: any, next: NextFunction, customErrorMessages?: Validator.ErrorMessages) {
+  const validator = new Validator(data, rules, customErrorMessages)
+
+  if (validator.fails()) {
+    return next(error(400, 'Bad Request', validator.errors.all()))
+  }
+
+  next()
+}
+
 export function validateBody(rules: any, customErrorMessages?: Validator.ErrorMessages): RequestHandler {
   return function (req: Request, res: Response, next: NextFunction): void {
-    const validator = new Validator(req.body, rules, customErrorMessages)
-
-    if (validator.fails()) {
-      return next(error(400, 'Bad Request', validator.errors.all()))
-    }
-
-    next()
+    validate(req.body, rules, next, customErrorMessages)
   }
 }
 
 export function validateQuery(rules: any, customErrorMessages?: Validator.ErrorMessages): RequestHandler {
   return function (req: Request, res: Response, next: NextFunction): void {
-    const validator = new Validator(req.query, rules, customErrorMessages)
-
-    if (validator.fails()) {
-      return next(error(400, 'Bad Request', validator.errors.all()))
-    }
-
-    next()
+    validate(req.query, rules, next, customErrorMessages)
   }
 }
