@@ -5,6 +5,7 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
 import * as lusca from 'lusca'
+import { Err } from './interfaces'
 
 const debug = require('debug')('ts-express:app')
 
@@ -36,11 +37,6 @@ app.use(lusca.xssProtection(true))
  * routes.
  */
 app.use('/', require('./router'))
-
-interface Err extends Error {
-  status: number
-  data: any
-}
 
 // catch 404 and forward to error handler
 app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {

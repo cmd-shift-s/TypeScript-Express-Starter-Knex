@@ -1,12 +1,8 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express'
 import * as Validator from 'validatorjs'
+import { Err } from './interfaces'
 
 export const wrap = (fn: RequestHandler) => (req: Request, res: Response, next: NextFunction) => fn(req, res, next).catch(next)
-
-interface Err extends Error {
-  status: number
-  data: any
-}
 
 export function error(status: number, message: string, data?: any): Error {
   let err = new Error(message) as Err

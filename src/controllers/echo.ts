@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import Echo from '../models/Echo'
+import { Echo } from '../models'
 import { wrap, error, validateQuery } from '../utils'
 
 const router = Router()
