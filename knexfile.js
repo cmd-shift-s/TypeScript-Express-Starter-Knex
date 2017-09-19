@@ -10,9 +10,9 @@ module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      database: 'blog',
-      user: 'blog',
-      password: 'blog@123'
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD
     }
   }
 
