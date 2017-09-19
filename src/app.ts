@@ -4,6 +4,7 @@
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as logger from 'morgan'
+import * as lusca from 'lusca'
 
 const debug = require('debug')('ts-express:app')
 
@@ -28,6 +29,8 @@ app.use(logger(process.env.LOG_LEVEL, {
 }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(lusca.xframe('SAMEORIGIN'))
+app.use(lusca.xssProtection(true))
 
 /**
  * routes.
