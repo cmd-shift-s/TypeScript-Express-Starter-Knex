@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-const app = require('../src/app')
+const app = require('../dist/app')
 const http = require('http')
 const debug = require('debug')('ts-express:server')
 

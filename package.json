@@ -7,7 +7,7 @@
     "start": "npm run build && npm run watch",
     "build": "npm run build-ts && npm run tslint",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve\"",
-    "serve": "cross-env DEBUG=ts-express:* nodemon bin/www --exec ts-node",
+    "serve": "cross-env DEBUG=ts-express:* nodemon bin/www",
     "build-ts": "tsc -p src",
     "watch-ts": "tsc -w -p src",
     "tslint": "tslint -c tslint.json -p src/tsconfig.json",
